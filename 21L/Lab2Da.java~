@@ -1,0 +1,281 @@
+import wheelsunh.users.*;
+import java.util.*;
+import java.awt.event.*;
+
+
+/**
+ * Lab2D - practice some 2D array methods and KeyEvents.
+ *
+ * @author cs415 and ???
+ */
+public class Lab2Da implements KeyListener 
+{  
+    private int [ ][ ]  matrix; 
+    private Random gen;
+    private int num = 1;
+    private TextBox tb;
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**
+     * Construct the lab.
+     */
+    public Lab2Da(  ) 
+    {
+        matrix = new int [5][5];
+        gen = new Random();
+        tb = new TextBox();
+        
+        
+        
+        
+        
+        printArr(  );
+    }
+    
+    
+    
+    
+    
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**
+     * Convert the matrix to a String and put the String in a Textbox.
+     * 
+     * 
+     */
+    public void printArr(   )
+    { 
+        System.out.println( "printArray called" );
+        String s1 = new String();
+        
+        for ( int r = 0; r < matrix.length; r++ )
+        {
+            for ( int c = 0; c < matrix[0].length; c++ )
+            {
+                 
+                s1 = s1 + matrix[r][c] + "\t";
+            }
+            s1 = s1 + "\n";
+        }
+        
+        tb.setWidth( 500 );
+        tb.setText( s1 );
+        
+        
+        
+        
+        
+    }
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /** Handle the key pressed event from the text field. 
+      *  Use this for action key input such as arrows --- use
+      *   e.getKeyCode()  ( returns int )
+      * 
+      * @param e KeyEvent
+      */
+    public void keyPressed( KeyEvent e ) 
+    {
+        int key = e.getKeyCode( );
+        System.out.println( "keyPressed called with key " + key );
+        
+        // use:   key == KeyEvent.VK_UP
+        //        key ==  KeyEvent.VK_LEFT etc.
+        // to test for arrow keys
+        
+        
+        if ( key == KeyEvent.VK_UP )
+        {
+            System.out.println( " UP " );
+            placeRandom();
+        }
+        else if ( key == KeyEvent.VK_DOWN )
+        {
+            System.out.println( " DOWN " );
+            clearArray();
+        }
+        else if ( key == KeyEvent.VK_LEFT )
+        {
+            System.out.println( " LEFT " );
+        }
+        
+        else if ( key == KeyEvent.VK_RIGHT )
+        {
+            System.out.println( " RIGHT " );
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // re-display the matrix in case it has changed 
+        printArr(   );
+    }
+    
+    
+    
+    
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**  
+     * This will check the matrix to see if there are any "empty"
+     *  elements (zero eleements).
+     *     
+     *  false: if there are zero entries
+     *  true:  if all entries are non-zero
+     * 
+     * @return boolean
+     */
+    public boolean isFull( )
+    {
+        System.out.println( "isFull called" );
+        
+        for( int i = 0; i < matrix.length; i++ )
+        {
+         for( int j = 0; j < matrix[i].length; j++)
+         {
+          if( matrix[i][j] == 0 )
+          {
+           return false;
+          }
+          
+         }
+         
+        }
+
+       return true;
+        
+        
+         
+        
+        
+        
+        
+        
+    }
+    
+    
+    //------------------------- placeRandom ---------------------------
+    /**
+     * Randomly places num is an "empty" (zero) element and increments
+     * num. If the array is "full" (all non-zero) then print a message
+     * and return.
+     * 
+     */
+    private void placeRandom( )
+    {
+        System.out.println( "placeRandom called" );
+        isFull();
+        if ( isFull() == true )
+        {
+            return;
+        }
+        else
+        {
+        while ( true )
+        {
+            int rowrandom = gen.nextInt( 5 );
+            int colrandom = gen.nextInt( 5 );
+            if ( matrix[rowrandom][colrandom] == 0 )
+            {
+                matrix[rowrandom][colrandom] = num;
+                num += 1;
+                
+                
+                break;
+            }
+        }
+            
+                  
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**
+     * Resets the array "matrix" so that all the values are 0.
+     * 
+     */
+    private void clearArray( )
+    {
+        System.out.println( "clearArray called" );
+        
+           for( int i = 0; i < matrix.length; i++ )
+        {
+         
+         
+         for( int j = 0; j < matrix[i].length; j++)
+         {
+          matrix[i][j] = 0;
+          
+         }
+        }
+        
+        
+        
+        
+        
+        
+        
+
+          
+    }
+    
+    
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /** Handle the key released event from the text field. 
+      * NOT NEEDED for this lab
+      * 
+      * @param e KeyEvent
+      */
+    public void keyReleased( KeyEvent e ) 
+    {
+        // System.out.println("KEY RELEASED: " + e.getKeyCode( ) );
+    }
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /** Handle the key typed event from the text field. 
+      *  NOT NEEDED for this lab
+      * 
+      * @param KeyEvent
+      * 
+      * @param e KeyEvent
+      */
+    public void keyTyped( KeyEvent e ) 
+    {
+        // char c = e.getKeyChar( );
+    }
+    
+    //------------------------------------------------------------------
+    /**
+     * main.
+     *
+     * @param arg String[]
+     */
+    public static void main( String arg[] )
+    {
+        Frame frame = new Frame( );
+        Lab2Da lab = new Lab2Da(  );
+        frame.addKeyListener( lab );
+        
+        // add app as a keyListener to frame:
+        
+        
+    }
+}

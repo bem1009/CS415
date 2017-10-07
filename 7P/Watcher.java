@@ -1,0 +1,229 @@
+/** 
+ * Piano.java:
+ * Displays a pad for building a Piano.
+ * @author Benjamin Miller 7P
+ * mb 9/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+import java.awt.Point;
+
+/**
+ * Bug is a shapegroup that implements weathersensitive and draggable.
+ * @author Benjamin Miller.
+ */
+public class Watcher extends ShapeGroup 
+{
+    private Point lastMousePosition;
+    private Ellipse outeye1, outeye2;
+    private Ellipse pupil, pupil2;
+    private Bug b1;
+    private TextBox textbox;
+    
+   
+    /**
+     * Watcher constructs two eyes.
+     */
+    public Watcher()
+    {
+        outeye1 = new Ellipse( 50 , 50 );
+        outeye1.setSize( 60 , 60 );
+        outeye1.setFillColor( Color.WHITE );
+        outeye1.setFrameColor( Color.BLACK );
+        add( outeye1 );
+        
+        pupil = new Ellipse( 70 , 70 );
+        pupil.setSize( 20, 20 );
+        pupil.setColor( Color.BLACK );
+        add( pupil );
+        
+        outeye2 = new Ellipse( 110 , 50 );
+        outeye2.setSize( 60, 60 );
+        outeye2.setFillColor( Color.WHITE );
+        outeye2.setFrameColor( Color.BLACK );
+        add( outeye2 );
+        
+        pupil2 = new Ellipse( 130, 70 );
+        pupil2.setSize( 20, 20 );
+        pupil2.setColor( Color.BLACK );
+        add( pupil2 );
+        
+        textbox = new TextBox( 30 , 350 );
+        
+        
+        
+        
+        
+        
+        
+        
+      
+      
+    }
+  /**
+   * mousePressed gets the point where it is presssed.
+   * @param e is where the mouse is pressed.
+   */
+    public void mousePressed( java.awt.event.MouseEvent e )
+    {
+        lastMousePosition = e.getPoint();
+    }
+    /**
+     * mouseDragged moves the shape when mouse is dragged.
+     * @param e is the point
+     */
+    public void mouseDragged( java.awt.event.MouseEvent e )
+    {
+        Point currentPoint = e.getPoint();
+        int diffX = currentPoint.x - lastMousePosition.x;
+        int diffY = currentPoint.y - lastMousePosition.y;
+        setLocation( getLocation().x + diffX, getLocation().y + diffY );
+        lastMousePosition = currentPoint;
+        watchMe();
+        
+        
+        
+        
+    }
+    /**
+     * watchMe makes the eyes watch the bug wherever is goes.
+     */
+    public void watchMe( )
+    {
+     
+      
+      
+      
+        double x1 = b1.getFocusPoint().getX();
+        double y1 = b1.getFocusPoint().getY();
+  
+        int x2 = pupil.getCenterX();
+        int y2 = pupil.getCenterY();
+      
+        int xeye = outeye1.getCenterX();
+        int yeye = outeye1.getCenterY();
+          
+        double dxbig = x1 - x2; 
+        double dybig = y1 - y2;
+      
+        double dxsquared = dxbig * dxbig;
+        double dysquared = dybig * dybig;
+      
+        double distance = Math.sqrt( dxsquared + dysquared );
+      
+        double d = Math.sqrt( ( 10 * 10 ) + ( 10 * 10 ) );
+      
+      
+        double dy = dybig * ( d / distance );
+        double dx = dxbig * ( d / distance ); 
+      
+      
+      
+      
+        int dxint = ( int ) ( dx );
+        int dyint = ( int ) ( dy );
+      
+        int newX = ( xeye + dxint - ( pupil.getWidth() / 2 ) );
+        int newY = ( yeye + dyint - ( pupil.getHeight() / 2 ) );
+      
+        pupil.setLocation( newX, newY );
+      
+        //Calculations for second eye 
+      
+        int x3 = pupil2.getCenterX();
+        int y3 = pupil2.getCenterY();
+      
+        int x2eye = outeye2.getCenterX();
+        int y2eye = outeye2.getCenterY();
+      
+        double dx2big = x1 - x3;
+        double dy2big = y1 - y3;
+      
+        double dxsquared2 = dx2big * dx2big;
+        double dysquared2 = dy2big * dy2big;
+      
+        double distance2 = Math.sqrt( dxsquared2 + dysquared2 );
+      
+        double d2 = Math.sqrt( ( 10 * 10 ) + ( 10 * 10 ) );
+      
+        double dy2 = dy2big * ( d2 / distance2 );
+        double dx2 = dx2big * ( d2 / distance2 ); 
+      
+        int dxint2 = ( int ) ( dx );
+        int dyint2 = ( int ) ( dy );
+      
+        int newX2 = ( x2eye + dxint2 - ( pupil2.getWidth() / 2 ) );
+        int newY2 = ( y2eye + dyint2 - ( pupil2.getHeight() / 2 ) );
+      
+        pupil2.setLocation( newX2, newY2 );
+      
+        textbox.setText( "Center Point of Left Eyeball is: " +
+                        outeye1.getCenter() 
+                          + "\n" + 
+                      "The Center of Focus of Bug is: " + b1.getFocusPoint() +
+                        "\n" +
+                      "Distance is: " + distance + "\n" +
+                      "DX is: " + dxbig + " and DY is: " + dybig + "\n" +
+                      "dX is: " + dx + " and dY is: " + dy 
+                        );
+        textbox.setWidth( 250 );
+                      
+                    
+        System.out.println( " Center of Bug Focus is: " + 
+                           b1.getFocusPoint() );     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+    /**
+     * addPeer makes the bug a peer.
+     * @param b is the bug
+     */
+    public void addPeer( Bug b )
+    {
+        b1 = b;
+        watchMe();
+      
+    }
+      
+  /**
+   * main tests the program.
+   * @param args is the args.
+   */ 
+    public static void main( String[] args ) 
+    {
+        new Frame();
+        Watcher w = new Watcher();
+        Bug b = new Bug( 100, 100 );
+        w.addPeer( b );
+        b.addPeer( w );
+        
+        
+       
+        
+        
+        
+     
+      
+      
+      
+      
+      
+    }
+}

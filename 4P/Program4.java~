@@ -1,0 +1,43 @@
+/** Ben Miller 4P 
+ * Program4.java:
+ * Tests out the bug class
+ * @author Benjamin Miller
+ * 
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+
+public class Program4 
+{
+    
+    //---------------- instance variables ------------------------------
+    
+ 
+    public  Ellipse circle;
+    public Line line; 
+   
+    
+    
+    // -----------------------------------------------------------------
+    /** Constructor 
+      */
+    public Program4( )
+    {
+       
+
+        
+        
+        
+    } 
+    
+    // -----------------------------------------------------------------
+    /** main program just invokes the class constructor.
+      */
+    public static void main(String[] args)
+    {
+        new Frame( );
+        Bug b1 = new Bug( Color.BLACK);
+        b1.setLocation( 300, 300);
+    }
+}//End of Class Program4

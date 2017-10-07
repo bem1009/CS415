@@ -1,0 +1,104 @@
+/** 
+ * Bug.java:
+ * Displays a pad for building a Bug.
+ * @author Benjamin Miller 3P
+ * mb 9/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+
+ /** 
+ * 
+ * @author Benjamin Miller
+ */ 
+public class Button extends TextBox
+{
+private Bug bug;
+private Bughat bughat;
+private Buglaser buglaser;
+ 
+  
+  
+    //---------------- instance variables ------------------------------
+  
+  
+  public Button( int x, int y, Bug b1 )
+{
+ super( x, y );
+ this.setText( "Normal Bug " );
+ this.setWidth( 100 );
+ this.setFillColor( Color.YELLOW );
+ 
+ 
+ 
+  
+
+  
+  
+}
+  
+  public Button( int x, int y, Bughat b2 )
+  {
+   super( x , y );
+   this.setText( " TopHat Bug " );
+   this.setWidth( 100 );
+   this.setFillColor(Color.YELLOW);
+  }
+  
+  public Button( int x, int y, Buglaser b3)
+  {
+    super( x , y );
+    this.setText( " Laser Bug " );
+    this.setWidth( 100 );
+    this.setFillColor( Color.YELLOW );
+    
+    
+  }
+  
+  public void mousePressed( java.awt.event.MouseEvent e )
+  {
+    
+    bug.activate();
+    bughat.activate();
+    buglaser.activate();
+    
+    
+  }
+
+  public void mouseReleased( java.awt.event.MouseEvent e )
+  {
+    
+    bug.deactivate();
+    bughat.deactivate();
+    buglaser.deactivate();
+    
+ 
+  }
+
+  
+
+        
+    
+    
+  
+  
+  
+  
+  
+  
+   public static void main( String[] args ) 
+    {
+      new Frame();
+      Bug b1 = new Bug( 100, 100);
+      new Button ( 90, 300, b1 );
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }}

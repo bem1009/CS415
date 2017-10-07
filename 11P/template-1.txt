@@ -1,0 +1,14 @@
+
+<<TITLE>> <<FIRST>> <<LAST>>
+<<STREET>>
+<<TOWN>>,  <<STATE>>
+
+Dear <<FIRST>>,
+
+I have seen in the <<STATE>> state records that the mortgage on your house at 
+<<STREET>> is in default. I am a long-time resident of <<TOWN>> and I
+would like to make you an offer of $10,000, no questions asked, for your house.
+ 
+Let me know by return post.
+
+Yours Truly,

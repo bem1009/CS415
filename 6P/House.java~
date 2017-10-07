@@ -1,0 +1,56 @@
+import wheelsunh.users.*;
+import java.awt.Color;
+import java.awt.Point;
+
+
+public class House extends ShapeGroup implements WeatherSensitive, draggable
+{
+  
+  
+    public House( int x, int y )
+    {
+       
+        
+        
+    }
+
+    public void mousePressed( java.awt.event.MouseEvent e )
+    {
+      
+    }
+    
+    public void mouseDragged( java.awt.event.MouseEvent e )
+    {
+      
+    }
+    
+    public void mouseReleased( java.awt.event.MouseEvent e )
+    {
+      
+    }
+    
+    public void setColor( Color b )
+    {
+      
+    }
+    
+    public void setLocation( int x, int y )
+    {
+      
+    }
+
+    public void warmWeather()
+    {
+      
+    }
+    
+    public void coldWeather()
+    {
+      
+    }
+
+
+ public static void main( String[] args ) 
+    {
+     
+ }}

@@ -1,0 +1,36 @@
+/** 
+ * Button.java:
+ * 
+ * @author Benjamin Miller 5P
+ * mb 10/6/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+import javax.swing.*;
+import java.util.*;
+import java.io.*;
+
+ /** 
+ * makes a button.
+ * @author Benjamin Miller
+ */ 
+public class TextBoxButton extends Button
+{
+  
+  private MaiMergeapp mainpeer;
+  public static final String temptext = "             Load Template";
+  
+  
+  public TextBoxButton( int x, int y, MailMergeApp mma )
+  {
+      super(x, y, temptext );
+      mainpeer = mma;
+  }
+  
+  public void mouseReleased( java.awt.event.MouseEvent e )
+  {
+      super.mouseReleased( e );
+      mainpeer.loadTemplate();
+  }
+  

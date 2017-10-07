@@ -1,0 +1,75 @@
+import javax.swing.JFileChooser;
+import java.io.*;
+import java.util.*;
+
+/**
+ * MailRecordException, thrown when an error is detected in a String
+ *          that is supposed to define a MailRecord object.
+ *  A correct String is a comma separated list consisting of:
+ *   <<TITLE>>, <<FIRST>> , <<LAST>>, <<STREET>>, <<TOWN>>, <<STATE>>
+ * 
+ * @author cs415
+ */
+public class MailRecord 
+{
+    /**
+     * Construct a MailRecordException.
+     * 
+     * @param msg String
+     * 
+     */
+  private String s1;
+  private ArrayList<MailRecord> mailz;
+  private String arr[];
+  private ArrayList<MailRecord> records;
+  
+
+    public MailRecord( String line )
+    {
+        
+             String arr[] = line.split( "," );
+             
+               if ( arr.length < 6 )
+             {
+               throw new MailRecordException( " Not enough fields " );
+             }
+             
+             if ( arr.length > 6 )
+               throw new MailRecordException( "Too many fields " );
+             
+              for( int c = 0; c < arr.length; c++ )
+             {
+                 arr[c].trim();
+                 if( arr[c] == "" )
+                    throw new MailRecordException( " Empty Field(s) " );
+             }
+             
+             
+             
+          
+               
+             
+         
+       
+         
+         records.add( this );
+         
+         
+         
+         
+         
+         
+         
+           
+         
+        
+    }
+    public static void main( String[ ] args ) 
+    {
+       
+    }
+    
+    
+    
+    
+}

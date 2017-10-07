@@ -1,0 +1,32 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class Teigue {
+  
+  private Textbox jono;
+  
+public teigue()
+{
+
+
+}
+
+  */
+    public void mouseDragged( java.awt.event.MouseEvent e )
+    {
+    
+    jono.setText("fuck teigue");
+    
+     TextBox jono = new TextBox( 150, 320 );
+         jono.setText( " $100/100 " );
+         
+  }
+
+
+ public static void main( String[] args ) 
+    {
+        new Frame();
+        new teigue();
+ }
+  
+}

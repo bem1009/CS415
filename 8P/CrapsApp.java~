@@ -1,0 +1,137 @@
+/** 
+ * slider.java:
+ * Displays a pad for building a Piano.
+ * @author Benjamin Miller 3P
+ * mb 9/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+import java.awt.Point;
+import java.util.*;
+
+/**
+ * Bug is a shapegroup that implements weathersensitive and draggable.
+ * @author Benjamin Miller.
+ */
+    public class CrapsApp extends ShapeGroup
+{
+  //---------------- instance variables ------------------------------
+      private Rectangle button1;
+      private dice dice;
+      private slider slider;
+      private TextBox textbox ,roll, bet;
+      private int randsum, beforewidth, grayslider;
+      
+      
+      
+      public CrapsApp( dice d , slider s )
+      {
+        button1 = new Rectangle( 90, 270 );
+        button1.setSize( 40, 30 );
+        add( button1 );
+        dice = d;
+        slider = s;
+        
+        randsum = dice.getRandomsum();
+        beforewidth = slider.getSlideBefore();
+        grayslider = slider.getGraySlider();
+        
+        
+        TextBox roll = new TextBox( 90 , 230 );
+        roll.setText( " Roll: " );
+        roll.setWidth( 50 );
+        
+        TextBox bet = new TextBox( 170, 230 );
+        bet.setText( "Bet: " );
+        bet.setWidth( 40 );
+                                     
+        
+      }
+      
+      
+      
+      public void mousePressed( java.awt.event.MouseEvent e )
+      {
+       {
+        dice.roll();
+        randsum = dice.getRandomsum();
+        beforewidth = slider.getSlideBefore();
+        grayslider = slider.getGraySlider();
+        
+      if ( randsum >= 5 && randsum <= 9 )
+      {
+        dice.setColor( Color.RED );
+        dice.setColor2( Color.RED );
+        slider.setSlider( grayslider - beforewidth );
+        System.out.println( "Lose" );
+          
+      }
+      
+      else if ( randsum == 2 )
+      {
+        dice.setColor( Color.GREEN );
+        dice.setColor2( Color.GREEN );
+        slider.setSlider( grayslider + ( beforewidth * 3 ) );
+        System.out.println( "Win! " );
+        
+      }
+      
+      else if ( randsum == 3 || randsum == 4 )
+      {
+        dice.setColor( Color.GREEN );
+        dice.setColor2( Color.GREEN );
+        slider.setSlider( grayslider + beforewidth );
+        System.out.println ( "Win! " );
+        
+      }
+      
+      else if ( randsum == 10 || randsum == 11 )
+      {
+        dice.setColor( Color.GREEN );
+        dice.setColor2( Color.GREEN );
+        slider.setSlider( grayslider + ( beforewidth * 2 ) );
+        System.out.println( "Win! " );
+      }
+      
+      else if ( randsum == 12 )
+      {
+        dice.setColor( Color.GREEN );
+        dice.setColor2( Color.GREEN );
+        slider.setSlider( grayslider + ( beforewidth * 5 ) );
+        System.out.println ( " Win! " );
+      }
+      
+      
+        }
+      
+        }
+   
+      
+      
+     
+      
+      
+      
+       /**
+       * End of slider.
+       * @author Benjamin Miller.
+       * @param args is the args. 
+       * 
+       */
+    public static void main( String[] args ) 
+    {
+        new Frame();
+        slider s1 = new slider();
+        dice d1 = new dice( );
+        new CrapsApp( d1 , s1 );
+       
+        
+        
+      
+      
+      
+      
+      
+    }   
+}

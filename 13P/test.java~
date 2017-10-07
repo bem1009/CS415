@@ -1,0 +1,4 @@
+JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory( new File( "." ));
+        int x = fc.showOpenDialog( null );
+        File f = fc.getSelectedFile( highest.txt );

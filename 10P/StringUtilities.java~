@@ -1,0 +1,352 @@
+
+import java.util.*;
+
+
+
+ /**
+  * A collection of useful String methods.
+  * 
+  * @author cs415 and ???
+  * 
+  */
+ public class StringUtilities
+ {  
+     public static final String ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+     public static String randorder;
+     public static ArrayList<String> quotes;
+     private static int betical = 0;
+     private static String test;
+    
+  
+     
+     //--------------------------------------------------------------------------
+     /**
+      * Returns true if the parameter is a single upper case letter.
+      * 
+      * @return boolean
+      * @param str String
+      */  
+     public static boolean isUpperCaseLetter( String str )
+     {
+         
+         return false;  
+     }
+     
+     //--------------------------------------------------------------------------
+     /**
+      *  Returns the String text with key inserted at index j.
+      * 
+      * @param text String
+      * @param key String
+      * @param j int
+      * 
+      * @return String
+      */
+     public static String insertAt ( String text, String key, int n )
+     {
+      if ( n > (text.length() ) || n < 0 )  
+            return null;
+            
+      else 
+      {
+          //key = letterAt( text, n );
+       String beginning = text.substring( 0, n  );
+       String end = text.substring( n );
+       String s = beginning + key + end ;
+       
+       
+       return s;
+       
+       
+       
+       
+       
+          
+      
+         
+         
+      }
+     }
+     //--------------------------------------------------------------------------
+     /**
+      *  Returns an ArrayList containing at least 6 quotes.
+      * 
+      * 
+      * @return ArrayList< String >
+      */
+     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     public static ArrayList< String > getQuotes( )
+     {
+         quotes = new ArrayList<String>();
+      
+      String quote1 = "Do or do not, there is no try ( Yoda )";
+      quotes.add( quote1 );
+      
+      String quote2 = "Efforts and courage are not enough without purpose and dedication "
+        + "( JFK )";
+      quotes.add( quote2 );
+      
+      String quote3 = "Be curious, not judgemental ( Walt Whitman )";
+      quotes.add( quote3 );
+      
+      String quote4 = "If you take shortcuts, you get cut short ( Gary Busey )";
+      quotes.add( quote4 );
+      
+      String quote5 = "Life is short, the art long ( Hippocrates )";
+      quotes.add( quote5 );
+      
+      String quote6 = "If a nation loses its storytellers, it loses its childhood "
+        + " ( Peter Handke )" ;
+      quotes.add( quote6 );
+         return quotes;
+     }
+     //--------------------------------------------------------------------------
+     /**
+      * Returns the String text with the jth character replaced with key.
+      * 
+      * @param text String
+      * @param key String
+      * @param j int
+      * 
+      * @return String
+      */
+     public static String replaceAt( String text, String key, int n )
+     {
+      
+   if ( n > (text.length() ) || n < 0 )  
+            return null;
+      else
+      {
+      
+             String start = text.substring( 0, n );
+          String end = text.substring( n + 1 );
+          String s = start + key + end ;
+         
+             return s;
+      }
+     }
+     
+     
+     
+     //--------------------------------------------------------------------------
+     /**
+      * Returns the String text with each letter translated by the key.
+      * The String key is a permutation of the 26 uppercase letters.
+      * 
+      * @param text String
+      * @param key String
+      * 
+      * @return String
+      */
+     public static String translate ( String text, String key )
+     {
+       {
+      String result = "";
+      for ( int i = 0; i < text.length(); i++ )
+         {
+
+          String letter = letterAt( text, i );
+          int k = ALPHA.indexOf( letter.toUpperCase() );
+          if ( k == -1 )
+          {
+           result += letter;
+          
+          }
+          else 
+          {
+           String b = letterAt( key, k );
+           result += b;
+          }
+     }
+     return result;
+       
+       }
+     }
+     
+          
+            
+               
+          
+   
+         
+          
+        
+ 
+     
+     
+     //--------------------------------------------------------------------------
+     /**
+      * Returns the character of String text at index n as a String.
+      * 
+      * @param text String
+      * @param n int
+      * 
+      * @return String
+      * 
+      */
+     public static String letterAt ( String text, int n )
+     {
+         
+        if ( n > (text.length() - 1) || n < 0 )  
+            return null;
+            
+            else 
+            {
+            char ch = text.charAt( n );
+            String newstring = Character.toString( ch );
+            return newstring;
+            }  
+     }
+     
+     //--------------------------------------------------------------------------
+     /**
+      * Returns the String "text" with the character at index n removed.
+      * 
+      * @param text String
+      * @param n int
+      * 
+      * @return String
+      * 
+      */
+     public static String removeAt ( String text, int n )
+     {
+      if ( n > (text.length() ) || n < 0 )  
+            return null;
+      else
+      {
+       String start = text.substring( 0, n );
+       String end = text.substring( n + 1 );
+       String str = start + end;
+       return str;
+       
+      }
+      
+      
+      
+      
+         
+         
+        
+     }
+     
+     
+     //--------------------------------------------------------------------------
+     /**
+      * Returns a permutation of the 26 uppercase letters.
+      * 
+      * @return String
+      */
+     public static String getRandomKey( )
+     {
+         char[] c = ALPHA.toCharArray();
+      Random gen = new Random( );
+      
+         for ( int i = 0; i < 26; i++ )
+         {
+         int newletter = gen.nextInt( 26 );
+         char orgletter = c[newletter];
+         c[newletter] = c[i];
+         c[i] = orgletter;
+         
+         
+         }
+         String key = new String( c );
+      
+         return key;
+        
+     }
+     
+
+     
+     //--------------------------------------------------------------------------
+     /**
+      *  A simple unit test for the methods.
+      *  
+      * 
+      * @param args String[]
+      */
+     public static void main( String args[] )
+     {
+         System.out.println( "****************** TEST getRandomKey" + 
+                            " *******************" );
+         System.out.println( "Random Keys" ); 
+         for( int i = 0; i < 6; i++ )
+         {
+             System.out.println( "Key: " + getRandomKey( ) ); 
+         }
+         
+         String test = "ABCDE";
+         System.out.println( "\n\n****************** TEST InsertAt" +
+                            " *******************" );
+         System.out.println( "Original: " + test ); 
+         
+         System.out.println( "Insert \"X\" at beginning: " + 
+                            insertAt( test, "X", 0 ) ); 
+         System.out.println( "Insert \"X\" at end: " +
+                            insertAt( test, "X", test.length() ) );
+         System.out.println( "Insert \"X\" at 3: " + 
+                            insertAt( test, "X", 3 ) );
+         
+         test = "ABCDE";
+         System.out.println( "\n\n****************** TEST replaceAt" +
+                            " *******************" );
+         System.out.println( "Original: " + test ); 
+         
+         System.out.println( "Replace with \"X\" at beginning: " +
+                            replaceAt( test, "X", 0 ) ); 
+         System.out.println( "Replace with \"X\" at end: " + 
+                            replaceAt( test, "X", test.length( ) - 1 ) );
+         System.out.println( "Replace with \"X\" at 3: " + 
+                            replaceAt( test, "X", 3 ) );
+         
+         test = "ABCDE";
+         System.out.println( "\n\n****************** TEST removeAt" +
+                            " *******************" );
+         System.out.println( "Original: " + test ); 
+         
+         System.out.println( "Remove at beginning: " +
+                            removeAt( test,  0 ) ); 
+         System.out.println( "Remove at end: " + 
+                            removeAt( test, test.length( ) - 1 ) );
+         System.out.println( "Remove at 3: " + 
+                            removeAt( test,  3 ) );
+         
+         System.out.println( "\n\n****************** TEST isUpperCaseLetter" );
+         
+         String  letters = "AXax? ;5";     
+         for( int i = 0; i < letters.length() ; i++ )
+         {
+             String letter = Character.toString( letters.charAt( i ) );
+             System.out.println( "isUpperCaseLetter: " + letter + " : " +
+                                isUpperCaseLetter( letter ) ); 
+             
+         }
+         System.out.println( "isUpperCaseLetter: " + "AB" + " : " +
+                            isUpperCaseLetter( "AB" ) ); 
+         System.out.println( "isUpperCaseLetter: " + "" + " : " +
+                            isUpperCaseLetter( "" ) ); 
+         System.out.println( "isUpperCaseLetter: " + "null" + " : " +
+                            isUpperCaseLetter( null ) ); 
+         
+         String key = "FAYNOXLJBWKSEQHIPZVCRMUDTG";
+         String text = "ABCD: MARY HAD A LITTLE LAMB :XYZ";
+         System.out.println( "\n\n****************** TEST Translate" + 
+                            " *******************" );
+         System.out.println( "Original: " + text ); 
+         
+         System.out.println( "KEY: " + key ); 
+         System.out.println( "TRANSLATION: " + translate( text, key ) );
+         
+         System.out.println( "\n\n****************** TEST GetQuotes" + 
+                            " *******************" );
+         ArrayList arr = StringUtilities.getQuotes();
+         if( arr != null )
+         {
+             for( int i = 0; i < 6 && i < arr.size(); i++ )
+             {
+                 System.out.println( arr.get( i ) );
+             }
+         }
+     }
+ }
+

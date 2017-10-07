@@ -1,0 +1,70 @@
+/** 
+ * Button.java:
+ * 
+ * @author Benjamin Miller 5P
+ * mb 10/6/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+import javax.swing.*;
+import java.util.*;
+
+ /** 
+ * makes a button.
+ * @author Benjamin Miller
+ */ 
+public class Button extends Ellipse
+{
+    private CryptogramApp quotes;
+    private int thisbutton;
+    private boolean can;
+    private TextBox tb10;
+    private int beenPressed = 0;
+    private Color clear = Color.WHITE;
+    private int newtextloc = 1;
+    private ArrayList<TextBox> textboxes;
+  
+  
+    //---------------- instance variables ------------------------------
+  
+  /**
+   * Button is a button made for the bug.
+   * @param x is the x coordinate.
+   * @param y is the y coordinate.
+   * @param cga is the peer, the main CryptogramApp.
+   * @param whatbutton indicates which type of button it is.
+   * 
+   */
+    public Button( int x, int y, MailMergeApp mma, int whatbutton )
+      
+    {
+      
+    }
+
+    
+    public void mousePressed( java.awt.event.MouseEvent e )
+    {
+      
+    }
+
+ public static void main( String[] args ) 
+    {
+        new Frame();
+        
+        CryptogramApp cg = new CryptogramApp();
+       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+}
+
+    
+    

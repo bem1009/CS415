@@ -1,0 +1,70 @@
+/** 
+ * slider.java:
+ * Displays a pad for building a Piano.
+ * @author Benjamin Miller 3P
+ * mb 9/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+import java.awt.Point;
+import java.util.*;
+
+/**
+ * Bug is a shapegroup that implements weathersensitive and draggable.
+ * @author Benjamin Miller.
+ */
+public class Shield extends Ellipse
+{
+// instance variables //
+  private Point lastMousePosition;
+  
+   public Shield()
+   {
+     super( 335, 380 );
+     setFillColor( Color.YELLOW );
+     setFrameColor( Color.BLACK );
+     setSize( 80, 20 );
+     
+     
+   }
+   
+    public void mousePressed( java.awt.event.MouseEvent e )
+    {
+        lastMousePosition = e.getPoint();
+    }
+    /**
+     * mouseDragged changes the location as the bug is being dragged.
+     * @param e is the e.
+     */
+    public void mouseDragged( java.awt.event.MouseEvent e )
+    {
+        Point currentPoint = e.getPoint();
+        int diffX = currentPoint.x - lastMousePosition.x;
+        int diffY = currentPoint.y - lastMousePosition.y;
+        setLocation( getLocation().x + diffX, getLocation().y );
+        lastMousePosition = currentPoint;
+        
+        
+        
+        
+    }
+   
+   
+   public static void main( String[] args ) 
+    {
+        Frame f1 = new Frame();
+        
+
+
+        new Shield();
+       
+        
+        
+      
+      
+      
+      
+      
+    }   
+}

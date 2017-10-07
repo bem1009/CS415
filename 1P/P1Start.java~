@@ -1,0 +1,50 @@
+/** Ben Miller 1P 
+ * P1Start.java:
+ * Displays a pad for building a Bug.
+ *
+ * mb 9/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+
+public class P1Start 
+{
+    
+    //---------------- instance variables ------------------------------
+    
+    private  Rectangle pad;
+    public  Ellipse circle;
+    public Line line; 
+   
+    
+    
+    // -----------------------------------------------------------------
+    /** Constructor 
+      */
+    public P1Start( )
+    {
+        pad = new wheelsunh.users.Rectangle( 10, 10 );
+        pad.setFillColor( java.awt.Color.WHITE );
+        pad.setFrameColor( java.awt.Color.BLACK );
+        pad.setSize( 600, 450);
+        circle = new wheelsunh.users.Ellipse( 250, 100);
+        circle.setFillColor( java.awt.Color.RED );
+
+        //--------------------------------------------
+        
+        // add your code here
+        
+        
+        
+    } 
+    
+    // -----------------------------------------------------------------
+    /** main program just invokes the class constructor.
+      */
+    public static void main(String[] args)
+    {
+        new Frame( );
+        P1Start app = new P1Start();
+    }
+}//End of Class P1Start

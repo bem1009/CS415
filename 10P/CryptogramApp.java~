@@ -1,0 +1,84 @@
+import wheelsunh.users.*;
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane;
+
+/**--------------------------------------------------------
+  * PigLatinApp:
+  * Pig Latin Translator
+  * 
+  * Lab 18
+  * 
+  * 
+  * mlb 
+  */
+
+
+public class CryptogramApp
+{
+   private BlockQuote quote, quote2;
+   private Random gen;
+   ArrayList<String> quotes;
+   private Buttons b1, b2, b3;
+   
+
+  
+   
+   //--------------------------------------------------------
+   //  No argumant constructor
+   public CryptogramApp( )
+   {   
+      quotes = StringUtilities.getQuotes();
+      gen = new Random( );
+      String randomquote = quotes.get(gen.nextInt( 6 ));
+     
+     quote = new BlockQuote( 20 , 50, randomquote );  
+     b1 = new Buttons( 500, 300, this, 1 );
+     b2 = new Buttons ( 500, 350, this, 2 );
+     b3 = new Buttons( 500, 380, this, 3 );
+    
+   }
+   
+   public void getNewQuote( )
+   {
+     String randomquote = quotes.get(gen.nextInt( 6 ));
+     quote2 = new BlockQuote( 20, 50, randomquote );
+     
+   }
+   
+   public void hideQuote()
+   {
+       quote.hide();
+   }
+   
+   public void sub( String a, String b )
+   {
+       quote.substitute( a, b );
+   }
+   
+   public void translate(  )
+   {
+      quote.translateBack( );
+   }
+   
+   public void translateBack(  )
+   {
+     quote.translateBack2( );
+   }
+
+   
+    
+   
+  
+   //--------------------------------------------------------
+   // Creates a Frame and a PigLatinApp 
+   //
+   public static void main( String args[] )
+   {
+      Frame f = new Frame();
+      CryptogramApp c1 = new CryptogramApp( );
+    
+      
+      
+   }
+}

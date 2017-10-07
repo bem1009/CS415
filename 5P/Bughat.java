@@ -1,0 +1,134 @@
+/** 
+ * Bug.java:
+ * Displays a pad for building a Bug.
+ * @author Benjamin Miller 3P
+ * mb 9/15
+ * 
+ */
+import wheelsunh.users.*;
+import java.awt.Color;
+
+ /** 
+ * Creates 4 different bugs based on one method.
+ * @author Benjamin Miller
+ */ 
+public class Bughat extends Bug
+{  
+  
+  
+    //---------------- instance variables ------------------------------
+    private Rectangle hat1, hat2, hat3;
+    private RoundedRectangle cane1, cane2;
+ 
+  /**
+   * Bughat is the bug with a hat.
+   * @param x is the x coordinate.
+   * @param y is the y coordinate.
+   */
+    public Bughat( int x , int y )
+    {
+          super( x , y );
+  
+        hat1 = new Rectangle( x + 45 , y - 5 );
+        hat1.setSize( 8, 15 );
+        hat1.setColor( Color.BLACK );
+  
+  
+  
+        hat2 = new Rectangle( x + 40 , y + 10 );
+        hat2.setSize( 20, 4 );
+        hat2.setColor( Color.BLACK );
+  
+  
+  
+        hat3 = new Rectangle( x + 45 , y + 5 );
+        hat3.setSize( 8 , 4 );
+        hat3.setColor( Color.CYAN );
+  
+  
+        cane1 = new RoundedRectangle( x + 27 , y + 25 );
+        cane1.setSize( 4 , 20 );
+        cane1.setColor( Color.BLACK );
+        cane1.setRotation( 30 );
+        cane1.hide();
+  
+        cane2 = new RoundedRectangle( x + 23 , y + 25 );
+        cane2.setSize( 10, 4 );
+        cane2.setColor( Color.BLACK );
+        cane2.setRotation( 10 );
+        cane2.hide();
+  
+    }
+ /**
+  * activate makes the cane show up.
+  */
+    public void activate()
+    {
+        cane1.show();
+        cane2.show();
+    }
+  /**
+   * deactivate makes the cane disappear again.
+   */
+    public void deactivate()
+    {
+        cane1.hide();
+        cane2.hide();
+    }
+
+
+  
+
+        
+    
+    
+  
+  
+  
+  
+  
+  /**
+   * main that tests the bug and its methods.
+   * @param args is the args.
+   */
+    public static void main( String[] args ) 
+    {
+        new Frame();
+        Bughat b1 = new Bughat( 100, 100 );
+        Utilities.sleep( 1000 );
+        b1.activate();
+        Utilities.sleep( 1000 );
+        b1.deactivate();
+      
+      
+      
+      
+      
+      
+    }
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
